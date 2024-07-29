@@ -1,3 +1,4 @@
 const saludar = () => {
-  console.log("Hola")
+  const img = document.getElementById("imgSaludo")
+  img.src = "./imagenes/cat2.gif"
 }
