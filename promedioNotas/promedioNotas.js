@@ -4,4 +4,10 @@ const calcularPromedioNotas = () => {
   const nota3 = recuperarFlotante("txtNota3");
   const promedio = calcularPromedio(nota1, nota2, nota3);
   cambiarTexto("lblResultado", promedio.toFixed(2));
+  if (promedio > 7 ) {
+    cambiarImagen("imgResultado", "./Exito.gif")
+  } else {
+    cambiarImagen("imgResultado", "./Fracaso.gif")
+
+  }
 };
