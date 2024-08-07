@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="puntoDeVenta.css" />
+    <script src="utilitarios.js"></script>
+    <script src="serviciosPuntoDeVenta.js"></script>
+    <script src="puntoDeVenta.js"></script>
+  </head>
+  <body>
+    <main class="principal">
+      <div class="logoEscuela">
+        <img src="./logoKrakeDev.png" alt="Logo" />
+      </div>
+      <div class="contenido">
+        <h1>PUNTO DE VENTA</h1>
+        <div class="inputs">
+          <h3>Producto</h3>
+          <input class="cajaTexto" type="text" id="txtProducto" />
+        </div>
+        <span id="lblErrorProducto"></span>
+        <div class="inputs">
+          <h3>Cantidad</h3>
+          <input class="cajaTexto" type="text" id="txtCantidad" />
+        </div>
+        <span id="lblErrorCantidad"></span>
+        <div class="inputs">
+            <h3>Precio</h3>
+            <input class="cajaTexto" type="text" id="txtPrecio" />
+        </div>
+        <span id="lblErrorPrecio"></span>
+        <div class="contenedorBoton">
+          <input
+            type="button"
+            value="TOTAL"
+            onclick="calcularValorTotal()"
+            class="estiloBoton"
+          />
+          <input
+            type="button"
+            class="estiloBoton"
+            value="LIMPIAR"
+            onclick="limpiar()"
+          />
+        </div>
+      </div>
+      <div class="areaResultado">
+        <div class="resultado">
+          <h3>Subtotal:</h3>
+          <h3 id="lblSubtotal">0.0</h3>
+        </div>
+        <div class="resultado">
+          <h3>Descuento:</h3>
+          <h3 id="lblDescuento">0.0</h3>
+        </div>
+        <div class="resultado">
+          <h3>IVA 12%:</h3>
+          <h3 id="lblValorIVA">0.0</h3>
+        </div>
+        <div class="resultado">
+          <h3>Total:</h3>
+          <h3 id="lblTotal">0.0</h3>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

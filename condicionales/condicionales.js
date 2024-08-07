@@ -8,12 +8,12 @@ const calcularTasaInteres = (ingresoAnual) => {
   } else if (ingresoAnual >= 1000000 && ingresoAnual < 2000000) {
     return 13;
   } else if (ingresoAnual >= 2000000) {
-    return 15;
+    return 12; //Antes era 15
   }
 };
 const calcularCapacidadPago = (edad, ingresos, egresos) => {
   if (edad > 50) {
-    let capacidad = egresos - ingresos;
+    let capacidad = ingresos - egresos; //Antes era egresos - ingresos
     let cuota = (capacidad * 30) / 100;
     return cuota;
   } else if (edad > 0 && edad <= 50) {
@@ -24,7 +24,7 @@ const calcularCapacidadPago = (edad, ingresos, egresos) => {
 };
 const calcularDescuento = (precio, cantidad) => {
   if (cantidad < 3) {
-    return 0;
+    return precio; //Antes devolvia 0
   } else if (cantidad >= 3 && cantidad <= 5) {
     let descuento = (precio * 2) / 100;
     let total = precio - descuento;
@@ -49,11 +49,13 @@ const determinarColesterolLDL = (nivelColesterol) => {
     return "Limite superior del rango normal";
   } else if (nivelColesterol >= 160 && nivelColesterol < 190) {
     return "Alto";
-  } else if (nivelColestol >= 190) {
+  } else if (nivelColesterol >= 190) {
+    //Antes mala declaracion "nivelColestol"
     return "Muy alto";
   }
 };
-const validadClave = (clave) => {
+const validarClave = (clave) => {
+  // Antes validadClave
   let tamanioClave = clave.length;
   if (tamanioClave >= 8 && tamanioClave <= 16) {
     return true;
@@ -73,10 +75,9 @@ const esMayuscula = (caracter) => {
 const esMinuscula = (caracter) => {
   let codigo = caracter.charCodeAt(0);
   if (
-    codigo >= 97 &&
-    codigo <= 122 &&
-    codigo >= 160 &&
-    codigo <= 163 &&
+    // SE usaba && en todo
+    (codigo >= 97 && codigo <= 122) ||
+    (codigo >= 160 && codigo <= 163) ||
     codigo == 130
   ) {
     return true;
