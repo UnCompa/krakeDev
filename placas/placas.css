@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: white;
+  background-color: #212121;
+}
+main {
+  margin: 2em;
+  background-color: #323232;
+  padding: 1em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0px 10px 10px #0005;
+}
+main h1 {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+main input {
+  background-color: #121212;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  text-align: center;
+  font-size: 1.5em;
+}
+main button {
+  background-color: #212121;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  color: white;
+}
+main span {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+main p {
+  color: #ff8080;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: bold;
+}
+.provincia {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+.provincia p {
+  font-weight: 700;
+  color: white;
+}
