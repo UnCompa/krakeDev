@@ -16,4 +16,19 @@ const jugar = (seleccionado) => {
     mostrarTexto("lblPuntajeComputadora", puntosComputador);
     mostrarTexto("lblGanador", "Perdiste la partida");
   }
+  if (puntosUsuario == 5) {
+    mostrarTexto("lblPartidaGanada", "Has ganado el juego");
+  } else if (puntosComputador == 5) {
+    mostrarTexto("lblPartidaGanada", "El computador te a vencido");
+  }
+};
+
+const limpiar = () => {
+  mostrarImagen("imgCompu", "");
+  mostrarTexto("lblGanador", "");
+  mostrarTexto("lblPuntajeJugador", "");
+  mostrarTexto("lblPuntajeComputadora", "");
+  mostrarTexto("lblPartidaGanada", "");
+  puntosUsuario = 0;
+  puntosComputador = 0;
 };
