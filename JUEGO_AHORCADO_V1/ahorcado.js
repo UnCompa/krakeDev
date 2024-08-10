@@ -59,10 +59,10 @@ const ingreseLetra = () => {
   if (esMayuscula(letra)) {
     validar(letra);
     if (coincidencias == 5) {
-      alert("Ha ganado");
+      mostrarImagen("ahorcadoImagen", "./ganador.gif");
     }
     if (intentos == 10) {
-      alert("Ha perdido");
+      mostrarImagen("ahorcadoImagen", "./gameOver.gif");
     }
   } else {
     alert("SOLO SE ACEPTAN MAYUSCULAS");
