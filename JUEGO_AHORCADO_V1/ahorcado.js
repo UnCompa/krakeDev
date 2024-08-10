@@ -24,6 +24,13 @@ const guardarPalabra = () => {
   if (secreta.length != 5 || !sonMayusculas) {
     alert("Las 5 palabras deben ser mayusculas");
   } else {
-    palabraSecreta = secreta
+    palabraSecreta = secreta;
   }
 };
+
+//Paso 2
+const mostrarLetra = (letra, posicion) => {
+  const div = document.getElementById(`div${posicion}`);
+  div.innerHTML = letra;
+};
+
