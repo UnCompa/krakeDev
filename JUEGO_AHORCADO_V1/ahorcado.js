@@ -47,9 +47,10 @@ const validar = (letra) => {
       letrasEncontradas += 1;
     }
   }
-  if(letrasEncontradas < 1) {
-    alert("La letra no es parte de la palabra")
-    errores += 1
+  if (letrasEncontradas < 1) {
+    alert("La letra no es parte de la palabra");
+    errores += 1;
+    mostrarAhorcado()
   }
 };
 //Paso 4
@@ -57,13 +58,35 @@ const ingreseLetra = () => {
   const letra = recuperarTexto("txtLetra");
   if (esMayuscula(letra)) {
     validar(letra);
-    if(coincidencias == 5) {
-      alert("Ha ganado")
+    if (coincidencias == 5) {
+      alert("Ha ganado");
     }
-    if(intentos == 10) {
-      alert("Ha perdido")
+    if (intentos == 10) {
+      alert("Ha perdido");
     }
   } else {
     alert("SOLO SE ACEPTAN MAYUSCULAS");
+  }
+};
+
+const mostrarAhorcado = () => {
+  if (errores == 1) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_01.png");
+  } else if (errores == 2) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_02.png");
+  } else if (errores == 3) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_03.png");
+  } else if (errores == 4) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_04.png");
+  } else if (errores == 5) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_05.png");
+  } else if (errores == 6) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_06.png");
+  } else if (errores == 7) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_07.png");
+  } else if (errores == 8) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_08.png");
+  } else if (errores == 9) {
+    mostrarImagen("ahorcadoImagen", "./Ahorcado_09.png");
   }
 };
