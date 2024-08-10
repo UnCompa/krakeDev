@@ -25,7 +25,6 @@ const guardarPalabra = () => {
     alert("Las 5 palabras deben ser mayusculas");
   } else {
     palabraSecreta = secreta;
-    validar("A");
   }
 };
 
@@ -44,5 +43,14 @@ const validar = (letra) => {
       mostrarLetra(letra, char);
       letrasEncontradas += 1;
     }
+  }
+};
+//Paso 4
+const ingreseLetra = () => {
+  const letra = recuperarTexto("txtLetra");
+  if (esMayuscula(letra)) {
+    validar(letra);
+  } else {
+    alert("SOLO SE ACEPTAN MAYUSCULAS");
   }
 };
