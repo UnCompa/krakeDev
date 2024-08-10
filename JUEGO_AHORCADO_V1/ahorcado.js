@@ -45,6 +45,7 @@ const validar = (letra) => {
     if (letras == letra) {
       mostrarLetra(letra, char);
       letrasEncontradas += 1;
+      coincidencias += 1;
     }
   }
   if (letrasEncontradas < 1) {
@@ -58,6 +59,7 @@ const ingreseLetra = () => {
   const letra = recuperarTexto("txtLetra");
   if (esMayuscula(letra)) {
     validar(letra);
+    intentos += 1
     if (coincidencias == 5) {
       mostrarImagen("ahorcadoImagen", "./ganador.gif");
     }
