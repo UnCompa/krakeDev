@@ -25,6 +25,7 @@ const guardarPalabra = () => {
     alert("Las 5 palabras deben ser mayusculas");
   } else {
     palabraSecreta = secreta;
+    validar("A");
   }
 };
 
@@ -34,3 +35,14 @@ const mostrarLetra = (letra, posicion) => {
   div.innerHTML = letra;
 };
 
+//Paso 3
+const validar = (letra) => {
+  let letrasEncontradas = 0;
+  for (let char = 0; char < palabraSecreta.length; char++) {
+    const letras = palabraSecreta.charAt(char);
+    if (letras == letra) {
+      mostrarLetra(letra, char);
+      letrasEncontradas += 1;
+    }
+  }
+};
