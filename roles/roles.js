@@ -117,14 +117,11 @@ const guardar = () => {
       if (res) {
         alert("EMPLEADO GUARDADO CORRECTAMENTE");
         mostrarEmpleados();
+        deshabilitarCampos();
       } else {
         alert("YA EXISTE UN EMPLEADO CON LA CEDULA " + empleado.cedula);
+        deshabilitarCampos();
       }
-      deshabilitarComponente("txtCedula");
-      deshabilitarComponente("txtNombre");
-      deshabilitarComponente("txtApellido");
-      deshabilitarComponente("txtSueldo");
-      deshabilitarComponente("btnGuardar");
     }
   }
 };
@@ -161,13 +158,17 @@ const ejecutarNuevo = () => {
   esNuevo = true;
 };
 
-const mostrarOpcionEmpleado = () => {
-  mostrarEmpleados();
+const deshabilitarCampos = () => {
   deshabilitarComponente("txtCedula");
   deshabilitarComponente("txtNombre");
   deshabilitarComponente("txtApellido");
   deshabilitarComponente("txtSueldo");
   deshabilitarComponente("btnGuardar");
+};
+
+const mostrarOpcionEmpleado = () => {
+  mostrarEmpleados();
+  deshabilitarCampos();
   mostrarComponente("divEmpleado");
   ocultarComponente("divRol");
   ocultarComponente("divResumen");
