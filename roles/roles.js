@@ -13,7 +13,7 @@ let empleados = [
     sueldo: 500.0,
   },
 ];
-
+let esNuevo = false
 const mostrarEmpleados = () => {
   const div = document.getElementById("tablaEmpleados");
   let contenidoTabla = `<table>
@@ -38,8 +38,22 @@ const mostrarEmpleados = () => {
   div.innerHTML = contenidoTabla;
 };
 
+const ejecutarNuevo= () => {
+  habilitarComponente("txtCedula");
+  habilitarComponente("txtNombre");
+  habilitarComponente("txtApellido");
+  habilitarComponente("txtSueldo");
+  habilitarComponente("btnGuardar");
+  esNuevo = true
+}
+
 const mostrarOpcionEmpleado = () => {
   mostrarEmpleados();
+  deshabilitarComponente("txtCedula");
+  deshabilitarComponente("txtNombre");
+  deshabilitarComponente("txtApellido");
+  deshabilitarComponente("txtSueldo");
+  deshabilitarComponente("btnGuardar");
   mostrarComponente("divEmpleado");
   ocultarComponente("divRol");
   ocultarComponente("divResumen");
