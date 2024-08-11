@@ -31,6 +31,8 @@ const mostrarTotales = () => {
   mostrarTexto("infoTotalPago", totalAPagar);
   mostrarTexto("infoAporteEmpleado", totalEmpleado);
   mostrarTexto("infoAporteEmpresa", totalEmpleador);
+  let totalNomina = totalAPagar + totalEmpleado + totalEmpleador
+  mostrarTexto("infoNomina", totalNomina);
 };
 
 const mostrarRoles = () => {
