@@ -15,6 +15,15 @@ let empleados = [
 ];
 let esNuevo = false;
 
+const limpiar = () => {
+  mostrarTextoEnCaja("txtCedula", "");
+  mostrarTextoEnCaja("txtNombre", "");
+  mostrarTextoEnCaja("txtApellido", "");
+  mostrarTextoEnCaja("txtSueldo", "");
+  esNuevo = false
+  deshabilitarCampos()
+}
+
 const ejecutarBusqueda = () => {
   let cedula = recuperarTexto("txtBusquedaCedula");
   let res = buscarEmpleado(cedula);
