@@ -14,6 +14,25 @@ let empleados = [
   },
 ];
 let esNuevo = false;
+
+const ejecutarBusqueda = () => {
+  let cedula = recuperarTexto("txtBusquedaCedula");
+  let res = buscarEmpleado(cedula);
+  if (res == null) {
+    alert("EMPLEADO NO EXISTE");
+  } else {
+    mostrarTextoEnCaja("txtCedula", res.cedula);
+    mostrarTextoEnCaja("txtNombre", res.nombre);
+    mostrarTextoEnCaja("txtApellido", res.apellido);
+    mostrarTextoEnCaja("txtSueldo", res.sueldo);
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+    deshabilitarComponente("txtCedula");
+  }
+};
+
 const mostrarEmpleados = () => {
   const div = document.getElementById("tablaEmpleados");
   let contenidoTabla = `<table>
@@ -118,10 +137,19 @@ const guardar = () => {
         alert("EMPLEADO GUARDADO CORRECTAMENTE");
         mostrarEmpleados();
         deshabilitarCampos();
+        esNuevo = false;
       } else {
         alert("YA EXISTE UN EMPLEADO CON LA CEDULA " + empleado.cedula);
         deshabilitarCampos();
       }
+    } else {
+      let empleadoBuscado = buscarEmpleado(cedulaValor);
+      empleadoBuscado.nombre = nombreValor;
+      empleadoBuscado.sueldo = sueldoValor;
+      empleadoBuscado.apellido = apellidoValor;
+      alert("EMPLEADO MODIFICADO EXITOSAMENTE");
+      mostrarEmpleados();
+      deshabilitarCampos()
     }
   }
 };
