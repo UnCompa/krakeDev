@@ -15,6 +15,16 @@ let empleados = [
 ];
 let esNuevo = false;
 
+const buscarPorRol = () => {
+  let cedula = recuperarTexto("txtBusquedaCedulaRol");
+  let empleado = buscarEmpleado(cedula)
+  if(empleado != null) {
+    mostrarTexto("infoCedula", empleado.cedula)
+    mostrarTexto("infoNombre", empleado.nombre + " " + empleado.apellido)
+    mostrarTexto("infoSueldo", empleado.sueldo)
+  } 
+}
+
 const limpiar = () => {
   mostrarTextoEnCaja("txtCedula", "");
   mostrarTextoEnCaja("txtNombre", "");

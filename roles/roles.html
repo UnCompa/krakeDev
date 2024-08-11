@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+  <head>
     <script src="roles.js"></script>
     <script src="utilitarios.js"></script>
-    <link rel="stylesheet" href="roles.css">
+    <link rel="stylesheet" href="roles.css" />
     <script src="utilitariosCadenas.js"></script>
   </head>
 
-  <body onload="mostrarOpcionEmpleado()">
+  <body onload="mostrarOpcionRol()">
     <div class="menu">
       <div class="contenedorBoton">
-        <input onclick="mostrarOpcionEmpleado()" type="button" value="EMPLEADO" class="estiloBoton" />
+        <input
+          onclick="mostrarOpcionEmpleado()"
+          type="button"
+          value="EMPLEADO"
+          class="estiloBoton"
+        />
       </div>
       <div class="contenedorBoton">
-        <input onclick="mostrarOpcionRol()" type="button" value="ROL" class="estiloBoton" />
+        <input
+          onclick="mostrarOpcionRol()"
+          type="button"
+          value="ROL"
+          class="estiloBoton"
+        />
       </div>
       <div class="contenedorBoton">
-        <input onclick="mostrarOpcionResumen()" type="button" value="RESUMEN" class="estiloBoton" />
+        <input
+          onclick="mostrarOpcionResumen()"
+          type="button"
+          value="RESUMEN"
+          class="estiloBoton"
+        />
       </div>
     </div>
     <div id="divEmpleado">
@@ -30,7 +45,12 @@
             </div>
           </div>
           <div class="contenedorBoton">
-            <input onclick="ejecutarBusqueda()" type="button" value="BUSCAR" class="estiloBoton" />
+            <input
+              onclick="ejecutarBusqueda()"
+              type="button"
+              value="BUSCAR"
+              class="estiloBoton"
+            />
           </div>
         </div>
 
@@ -65,7 +85,12 @@
           </div>
           <div class="botones">
             <div class="contenedorBoton">
-              <input onclick="ejecutarNuevo()" type="button" value="NUEVO" class="estiloBoton" />
+              <input
+                onclick="ejecutarNuevo()"
+                type="button"
+                value="NUEVO"
+                class="estiloBoton"
+              />
             </div>
             <div class="contenedorBoton">
               <input
@@ -77,7 +102,12 @@
               />
             </div>
             <div class="contenedorBoton">
-              <input onclick="limpiar()" type="button" value="LIMPIAR" class="estiloBoton" />
+              <input
+                onclick="limpiar()"
+                type="button"
+                value="LIMPIAR"
+                class="estiloBoton"
+              />
             </div>
           </div>
           <div id="tablaEmpleados" class="areaTabla"></div>
@@ -98,7 +128,7 @@
             </div>
           </div>
           <div class="contenedorBoton">
-            <input type="button" value="BUSCAR" class="estiloBoton" />
+            <input onclick="buscarPorRol()" type="button" value="BUSCAR" class="estiloBoton" />
           </div>
         </div>
 
