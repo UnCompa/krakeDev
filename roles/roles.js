@@ -56,10 +56,7 @@ const guardar = () => {
     for (let i = 0; i < cedulaValor.length; i++) {
       if (!esDigito(cedulaValor.charAt(i))) {
         cedulaError = true;
-        mostrarTexto(
-          "lblErrorCedula",
-          "La cedula debe contener solo dígitos"
-        );
+        mostrarTexto("lblErrorCedula", "La cedula debe contener solo dígitos");
         break;
       }
     }
@@ -123,6 +120,11 @@ const guardar = () => {
       } else {
         alert("YA EXISTE UN EMPLEADO CON LA CEDULA " + empleado.cedula);
       }
+      deshabilitarComponente("txtCedula");
+      deshabilitarComponente("txtNombre");
+      deshabilitarComponente("txtApellido");
+      deshabilitarComponente("txtSueldo");
+      deshabilitarComponente("btnGuardar");
     }
   }
 };
