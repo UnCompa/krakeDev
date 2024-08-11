@@ -16,21 +16,64 @@ let empleados = [
 let esNuevo = false;
 let roles = [];
 
+const mostrarTotales = () => {
+  let totalEmpleado = 0;
+  let totalEmpleador = 0;
+  let totalAPagar = 0;
+  for (let i = 0; i < roles.length; i++) {
+    let rol = roles[i];
+    totalAPagar += rol.valorAPagar;
+    totalEmpleado += rol.aporteEmpleado;
+    totalEmpleador += rol.aporteEmpleador;
+  }
+  console.log(totalAPagar);
+
+  mostrarTexto("infoTotalPago", totalAPagar);
+  mostrarTexto("infoAporteEmpleado", totalEmpleado);
+  mostrarTexto("infoAporteEmpresa", totalEmpleador);
+};
+
+const mostrarRoles = () => {
+  const div = document.getElementById("tablaResumen");
+  let contenidoTabla = `<table>
+    <tr>
+      <th>CEDULA</th>
+      <th>NOMBRE</th>
+      <th>VALOR A PAGAR</th>
+      <th>APORTE EMPLEADO</th>
+      <th>APORTE EMPLEADOR</th>
+    </tr>
+    `;
+  for (let i = 0; i < roles.length; i++) {
+    let rol;
+    rol = roles[i];
+    contenidoTabla += `
+      <tr>
+      <td>${rol.cedula}</td>
+      <td>${rol.nombre}</td>
+      <td>${rol.valorAPagar}</td>
+      <td>${rol.aporteEmpleado}</td>
+      <td>${rol.aporteEmpleador}</td>
+    </tr>`;
+  }
+  div.innerHTML = contenidoTabla;
+};
+
 const guardarRol = () => {
-  let aporte = recuperarTextoDiv("infoIESS");
-  let valorAPagar = recuperarTextoDiv("infoPago");
+  let aporte = recuperarFloatDiv("infoIESS");
+  let valorAPagar = recuperarFloatDiv("infoPago");
   let cedula = recuperarTextoDiv("infoCedula");
   let nombre = recuperarTextoDiv("infoNombre");
-  let sueldo = recuperarTextoDiv("infoSueldo");
-  let aporteEmpleador = calcularAporteEmpleador(sueldo)
-  let rol = {}
-  rol.cedula = cedula
-  rol.nombre = nombre
-  rol.sueldo = sueldo
-  rol.valorAPagar = valorAPagar
-  rol.aporteEmpleado = aporte
-  rol.aporteEmpleador = aporteEmpleador
-  agregarRol(rol)
+  let sueldo = recuperarIntDiv("infoSueldo");
+  let aporteEmpleador = calcularAporteEmpleador(sueldo);
+  let rol = {};
+  rol.cedula = cedula;
+  rol.nombre = nombre;
+  rol.sueldo = sueldo;
+  rol.valorAPagar = valorAPagar;
+  rol.aporteEmpleado = aporte;
+  rol.aporteEmpleador = aporteEmpleador;
+  agregarRol(rol);
 };
 const calcularAporteEmpleador = (sueldo) => {
   const aporteEmpleado = (sueldo * 11.15) / 100;
@@ -293,6 +336,8 @@ const mostrarOpcionRol = () => {
   ocultarComponente("divEmpleado");
   ocultarComponente("divResumen");
   deshabilitarComponente("btnGuardarRol");
+  mostrarRoles();
+  mostrarTotales();
 };
 const mostrarOpcionResumen = () => {
   mostrarComponente("divResumen");
