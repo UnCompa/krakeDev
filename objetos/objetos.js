@@ -15,6 +15,16 @@ const probarAtributos = () => {
   }
 };
 
+const modificarAtributos = () => {
+  let cuenta = {
+    numero: "123214345",
+    saldo: 0.0,
+  };
+  cuenta.saldo = 100;
+  cuenta.saldo += 10;
+  console.log(cuenta.saldo);
+};
+
 const crearProducto = () => {
   let producto1 = {
     nombre: "Laptop",
@@ -34,5 +44,51 @@ const crearProducto = () => {
     console.log("El producto 1 tiene mas stock");
   } else {
     console.log("El producto 2 tiene mas stock");
+  }
+};
+
+const crearCliente = () => {
+  let cliente = {
+    cedula: "1720097228",
+    nombre: "Pepe",
+  };
+  let cliente2 = {};
+  cliente2.nombre = "Juan";
+  cliente2.cedula = "1704239";
+};
+
+const probarIncrementoSaldo = () => {
+  let cuenta = {
+    numero: "234234",
+    saldo: 34.0,
+  };
+  incrementarSaldo(cuenta, 200);
+  console.log(cuenta.saldo);
+  
+};
+const probarDeterminarMayor = () => {
+  let persona1 = {
+    nombre: "Juan",
+    edad: 42,
+  };
+  let persona2 = {
+    nombre: "Luis",
+    edad: 56,
+  };
+  mayor = determinarMayor(persona1, persona2);
+  if (mayor != null) {
+    console.log("El mayor es: " + mayor.nombre);
+  }
+};
+const incrementarSaldo = (cuenta, monto) => {
+  cuenta.saldo += monto;
+};
+const determinarMayor = (persona1, persona2) => {
+  if (persona1.edad > persona2.edad) {
+    return persona1;
+  } else if (persona2.edad > persona1.edad) {
+    return persona2;
+  } else {
+    return null;
   }
 };
