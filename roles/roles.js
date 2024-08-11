@@ -14,24 +14,69 @@ let empleados = [
   },
 ];
 let esNuevo = false;
+let roles = [];
 
+const guardarRol = () => {
+  let aporte = recuperarTextoDiv("infoIESS");
+  let valorAPagar = recuperarTextoDiv("infoPago");
+  let cedula = recuperarTextoDiv("infoCedula");
+  let nombre = recuperarTextoDiv("infoNombre");
+  let sueldo = recuperarTextoDiv("infoSueldo");
+  let aporteEmpleador = calcularAporteEmpleador(sueldo)
+  let rol = {}
+  rol.cedula = cedula
+  rol.nombre = nombre
+  rol.sueldo = sueldo
+  rol.valorAPagar = valorAPagar
+  rol.aporteEmpleado = aporte
+  rol.aporteEmpleador = aporteEmpleador
+  agregarRol(rol)
+};
+const calcularAporteEmpleador = (sueldo) => {
+  const aporteEmpleado = (sueldo * 11.15) / 100;
+  return aporteEmpleado;
+};
+
+const agregarRol = (rol) => {
+  const res = buscarRol(rol.cedula);
+  if (res == null) {
+    roles.push(rol);
+    alert("ROL GUARDADO CORRECTAMENTE");
+  } else {
+    alert("EL ROL YA EXISTE");
+  }
+};
+
+const buscarRol = (cedula) => {
+  let rol;
+  let rolEncontrado = null;
+  for (let i = 0; i < roles.length; i++) {
+    rol = roles[i];
+    if (rol.cedula == cedula) {
+      rolEncontrado = rol;
+      break;
+    }
+  }
+  return rolEncontrado;
+};
 const calcularRol = () => {
-  let sueldo = recuperarFloatDiv("infoSueldo")
+  let sueldo = recuperarFloatDiv("infoSueldo");
   console.log(sueldo);
-  
-  let descuentos = recuperarTexto("txtDescuentos")
+
+  let descuentos = recuperarTexto("txtDescuentos");
   console.log(descuentos);
-  if(descuentos > 0 && descuentos <= sueldo) {
-    let aporte = calcularAporteEmpleado(sueldo)
-    let valorAPagar = calcularValorAPagar(sueldo,aporte,descuentos)
+  if (descuentos > 0 && descuentos <= sueldo) {
+    let aporte = calcularAporteEmpleado(sueldo);
+    let valorAPagar = calcularValorAPagar(sueldo, aporte, descuentos);
     mostrarTexto("infoIESS", aporte);
     mostrarTexto("infoPago", valorAPagar);
+    habilitarComponente("btnGuardarRol");
   }
-}
+};
 
 const calcularValorAPagar = (sueldo, aporte, descuento) => {
   const valorAPagar = sueldo - aporte - descuento;
-  return valorAPagar
+  return valorAPagar;
 };
 
 const calcularAporteEmpleado = (sueldo) => {
@@ -247,6 +292,7 @@ const mostrarOpcionRol = () => {
   mostrarComponente("divRol");
   ocultarComponente("divEmpleado");
   ocultarComponente("divResumen");
+  deshabilitarComponente("btnGuardarRol");
 };
 const mostrarOpcionResumen = () => {
   mostrarComponente("divResumen");
