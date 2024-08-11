@@ -15,24 +15,47 @@ let empleados = [
 ];
 let esNuevo = false;
 
+const calcularRol = () => {
+  let sueldo = recuperarFloatDiv("infoSueldo")
+  console.log(sueldo);
+  
+  let descuentos = recuperarTexto("txtDescuentos")
+  console.log(descuentos);
+  if(descuentos > 0 && descuentos <= sueldo) {
+    let aporte = calcularAporteEmpleado(sueldo)
+    let valorAPagar = calcularValorAPagar(sueldo,aporte,descuentos)
+    mostrarTexto("infoIESS", aporte);
+    mostrarTexto("infoPago", valorAPagar);
+  }
+}
+
+const calcularValorAPagar = (sueldo, aporte, descuento) => {
+  const valorAPagar = sueldo - aporte - descuento;
+  return valorAPagar
+};
+
+const calcularAporteEmpleado = (sueldo) => {
+  const sueldoEmpleado = (sueldo * 9.45) / 100;
+  return sueldoEmpleado;
+};
 const buscarPorRol = () => {
   let cedula = recuperarTexto("txtBusquedaCedulaRol");
-  let empleado = buscarEmpleado(cedula)
-  if(empleado != null) {
-    mostrarTexto("infoCedula", empleado.cedula)
-    mostrarTexto("infoNombre", empleado.nombre + " " + empleado.apellido)
-    mostrarTexto("infoSueldo", empleado.sueldo)
-  } 
-}
+  let empleado = buscarEmpleado(cedula);
+  if (empleado != null) {
+    mostrarTexto("infoCedula", empleado.cedula);
+    mostrarTexto("infoNombre", empleado.nombre + " " + empleado.apellido);
+    mostrarTexto("infoSueldo", empleado.sueldo);
+  }
+};
 
 const limpiar = () => {
   mostrarTextoEnCaja("txtCedula", "");
   mostrarTextoEnCaja("txtNombre", "");
   mostrarTextoEnCaja("txtApellido", "");
   mostrarTextoEnCaja("txtSueldo", "");
-  esNuevo = false
-  deshabilitarCampos()
-}
+  esNuevo = false;
+  deshabilitarCampos();
+};
 
 const ejecutarBusqueda = () => {
   let cedula = recuperarTexto("txtBusquedaCedula");
@@ -168,7 +191,7 @@ const guardar = () => {
       empleadoBuscado.apellido = apellidoValor;
       alert("EMPLEADO MODIFICADO EXITOSAMENTE");
       mostrarEmpleados();
-      deshabilitarCampos()
+      deshabilitarCampos();
     }
   }
 };
