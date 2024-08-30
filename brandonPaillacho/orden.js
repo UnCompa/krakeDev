@@ -8,25 +8,29 @@ let personas = [
 
 const agregarPersona = () => {
   let nombre = recuperarTexto("txtNombre");
-  let nombreError = document.getElementById("lblErrorNombre");
+  let nombreErrorDiv = document.getElementById("lblErrorNombre");
   let edad = recuperarTexto("txtEdad");
-  let edadError = document.getElementById("lblErrorEdad");
+
+  //TODO: Variables para verificar el error
+
+  let edadErrorDiv = document.getElementById("lblErrorEdad");
   let errorNombre = null;
   let errorEdad = null;
   if (nombre.length < 4) {
-    nombreError.innerHTML = "El nombre debe ser mayor a 3 digitos";
+    nombreErrorDiv.innerHTML = "El nombre debe ser mayor a 3 digitos";
     errorNombre = true;
   } else {
-    nombreError.innerHTML = "";
+    nombreErrorDiv.innerHTML = "";
     errorNombre = false;
   }
+  console.log(edad);
   console.log(edad.length);
-  
-  if (edad < 0 || edad > 100 || edad.length == 0) {
-    edadError.innerHTML = "Edad permitida de 1 al 100";
+
+  if (parseInt(edad) < 0 || parseInt(edad) > 100 || edad.length == 0) {
+    edadErrorDiv.innerHTML = "Edad permitida de 1 al 100";
     errorEdad = true;
   } else {
-    edadError.innerHTML = "";
+    edadErrorDiv.innerHTML = "";
     errorEdad = false;
   }
   console.log(errorEdad);
@@ -42,7 +46,14 @@ const agregarPersona = () => {
     generarTabla();
     alert("Persona agregada");
   } else {
-    alert("Error al agregar la persona");
+    //TODO: Mostrar el error cuando se intenta agregar una persona
+    if (errorEdad == true && errorNombre == true) {
+      alert("Error al agregar la persona - Edad Incorrecta, Nombre Icnorrecto");
+    } else if (errorEdad == true) {
+      alert("Error al agregar la persona - Edad Incorrecta");
+    } else if (errorNombre == true) {
+      alert("Error al agregar la persona - Nombre incorrecto");
+    }
   }
 };
 
