@@ -11,29 +11,38 @@ const agregarPersona = () => {
   let nombreError = document.getElementById("lblErrorNombre");
   let edad = recuperarTexto("txtEdad");
   let edadError = document.getElementById("lblErrorEdad");
-  let sinError = true;
+  let errorNombre = null;
+  let errorEdad = null;
   if (nombre.length < 4) {
     nombreError.innerHTML = "El nombre debe ser mayor a 3 digitos";
-    sinError = false;
+    errorNombre = true;
   } else {
     nombreError.innerHTML = "";
-    sinError = true;
+    errorNombre = false;
   }
-  if (edad < 0 || edad > 100) {
+  console.log(edad.length);
+  
+  if (edad < 0 || edad > 100 || edad.length == 0) {
     edadError.innerHTML = "Edad permitida de 1 al 100";
-    sinError = false;
+    errorEdad = true;
   } else {
     edadError.innerHTML = "";
-    sinError = true;
+    errorEdad = false;
   }
+  console.log(errorEdad);
+  console.log(errorNombre);
 
-  if (sinError) {
+  console.log(errorEdad == false && errorNombre == false);
+
+  if (errorEdad == false && errorNombre == false) {
     let nuevaPersona = {};
     nuevaPersona.nombre = nombre;
     nuevaPersona.edad = edad;
     personas.push(nuevaPersona);
     generarTabla();
     alert("Persona agregada");
+  } else {
+    alert("Error al agregar la persona");
   }
 };
 
