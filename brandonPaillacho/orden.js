@@ -58,3 +58,37 @@ const generarTabla = () => {
   tabla.innerHTML = contenidoTabla;
 };
 
+const encontrarMayor = () => {
+  let personaMayor = personas[0];
+  let elementoPersona = personas;
+  for (let i = 1; i < elementoPersona.length; i++) {
+    const persona = personas[i];
+    console.log(persona.nombre);
+    console.log(persona.edad);
+    if (persona.edad > personaMayor.edad) {
+      personaMayor = persona;
+    }
+  }
+  return personaMayor;
+};
+const determinarMayor = () => {
+  let mayor = encontrarMayor();
+  mostrarTexto("lblMayor", "La persona mayor es: " + mayor.nombre);
+};
+const encontrarMenor = () => {
+  let personaMenor = personas[0];
+  let elementoPersona = personas;
+  for (let i = 1; i < elementoPersona.length; i++) {
+    const persona = personas[i];
+    console.log(persona.nombre);
+    console.log(persona.edad);
+    if (persona.edad < personaMenor.edad) {
+      personaMenor = persona;
+    }
+  }
+  return personaMenor;
+};
+const determinarMenor = () => {
+  let mayor = encontrarMenor();
+  mostrarTexto("lblMenor", "La persona mayor es: " + mayor.nombre);
+};
