@@ -32,6 +32,29 @@ const agregarPersona = () => {
     nuevaPersona.nombre = nombre;
     nuevaPersona.edad = edad;
     personas.push(nuevaPersona);
+    generarTabla();
     alert("Persona agregada");
   }
 };
+
+const generarTabla = () => {
+  const tabla = document.getElementById("tablaPersonas");
+  let contenidoTabla = `
+  <tr>
+    <th>Edad</th>
+    <th>Nombre</th>
+  </tr>
+  `;
+
+  for (let i = 0; i < personas.length; i++) {
+    const persona = personas[i];
+    contenidoTabla += `
+    <tr>
+    <td>${persona.edad}</td>
+    <td>${persona.nombre}</td>
+    </tr>
+    `;
+  }
+  tabla.innerHTML = contenidoTabla;
+};
+

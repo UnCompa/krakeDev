@@ -8,14 +8,23 @@
     <script src="orden.js"></script>
     <script src="utilitarios.js"></script>
   </head>
-  <body>
+  <body onload="generarTabla()">
     <main>
-      <h1>Agrega tu persona</h1>
-      <input id="txtNombre" type="text" placeholder="Nombre" />
-      <span id="lblErrorNombre"></span>
-      <input id="txtEdad" type="text" placeholder="Edad" />
-      <span id="lblErrorEdad"></span>
-      <button onclick="agregarPersona()">Guardar</button>
+      <section class="addPerson">
+        <h1>Agrega tu persona</h1>
+        <input id="txtNombre" type="text" placeholder="Nombre" />
+        <span id="lblErrorNombre"></span>
+        <input id="txtEdad" type="text" placeholder="Edad" />
+        <span id="lblErrorEdad"></span>
+        <button onclick="agregarPersona()">Guardar</button>
+        <button onclick="determinarMayor()">Encontrar Mayor</button>
+        <button onclick="determinarMenor()">Encontrar Menor</button>
+        <p id="lblMayor">La persona mayor es:</p>
+        <p id="lblMenor">La persona menor es:</p>
+      </section>
+      <section class="viewTable">
+        <table id="tablaPersonas"></table>
+      </section>
     </main>
   </body>
 </html>

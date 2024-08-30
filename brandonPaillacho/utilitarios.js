@@ -3,7 +3,7 @@ const mostrarImagen = (idComponente, rutaImagen) => {
   componente = document.getElementById(idComponente);
   componente.src = rutaImagen;
 };
-mostrarTexto = function (idComponente, mensaje) {
+const mostrarTexto = (idComponente, mensaje) => {
   let componente;
   componente = document.getElementById(idComponente);
   componente.innerText = mensaje;
