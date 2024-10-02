@@ -33,11 +33,6 @@ const agregarPersona = () => {
     edadErrorDiv.innerHTML = "";
     errorEdad = false;
   }
-  console.log(errorEdad);
-  console.log(errorNombre);
-
-  console.log(errorEdad == false && errorNombre == false);
-
   if (errorEdad == false && errorNombre == false) {
     let nuevaPersona = {};
     nuevaPersona.nombre = nombre;

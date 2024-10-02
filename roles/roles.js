@@ -104,6 +104,7 @@ const buscarRol = (cedula) => {
   }
   return rolEncontrado;
 };
+
 const calcularRol = () => {
   let sueldo = recuperarFloatDiv("infoSueldo");
   console.log(sueldo);

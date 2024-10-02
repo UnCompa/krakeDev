@@ -99,12 +99,15 @@ limpiar = function () {
         Si funciona, hacer un commit
      */
   mostrarTextoEnCaja("txtProducto", "");
-  mostrarTextoEnCaja("txtPrecio", 0);
-  mostrarTextoEnCaja("txtCantidad", 0);
+  mostrarTextoEnCaja("txtPrecio", "");
+  mostrarTextoEnCaja("txtCantidad", "");
   mostrarTexto("lblSubtotal", "0.0");
   mostrarTexto("lblDescuento", "0.0");
   mostrarTexto("lblValorIVA", "0.0");
   mostrarTexto("lblTotal", "0.0");
+  mostrarTexto("lblErrorProducto", "");
+  mostrarTexto("lblErrorCantidad", "");
+  mostrarTexto("lblErrorPrecio", "");
 };
 /* SI TODO FUNCIONA, HACER UN PUSH */
 
